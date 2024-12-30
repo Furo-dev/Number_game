@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Knewave&display=swap"
+      rel="stylesheet"
+    />
+    <title>Jeu du nombre</title>
+  </head>
+  <body>
+    <!-- Section bouton Start -->
+    <section id="start-screen">
+      <h1>Trouver le nombre entre 1 et 100</h1>
+      <button id="start-button">START</button>
+    </section>
+
+    <!-- Section du jeu -->
+    <section id="game-screen">
+      <div class="wrapper-titre">
+        <h1>Trouver le nombre entre 1 et 100</h1>
+      </div>
+      <!-- Coté jeu -->
+      <div class="wrapper-jeu">
+        <p id="message"></p>
+        <ul id="history"></ul>
+        <input type="number" id="user-input" placeholder="Insérer un nombre" />
+        <button id="check-button">VERIFIER</button>
+        <button id="replay-button">REJOUER</button>
+      </div>
+    </section>
+  </body>
+  <script src="script.js"></script>
+</html>

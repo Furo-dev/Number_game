@@ -1,0 +1,209 @@
+/* Variables */
+:root {
+  --button-game-size: 2em;
+}
+
+/* Layout */
+body {
+  background-color: #43a0d6;
+}
+
+/* START SCREEN */
+
+/* Cache le jeu par défaut */
+#game-screen {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+#game-screen.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Ecran start */
+#start-screen {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Titre */
+h1 {
+  font-family: "Titan One", serif;
+  color: #fff;
+  opacity: 0.3;
+  font-size: 5rem;
+}
+/* Bouton start */
+#start-button {
+  cursor: pointer;
+  position: absolute;
+  top: 400px;
+  background: linear-gradient(#555, #333);
+  color: #fff;
+  padding: 1rem 2rem;
+  font-family: "Bangers", serif;
+  font-weight: 400;
+  font-size: 3rem;
+  letter-spacing: 5px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 2px 6px 0 #333;
+  scale: 1;
+}
+
+#start-button:focus,
+#start-button:hover {
+  scale: 1.1;
+}
+
+/* GAME SCREEN */
+
+.wrapper-titre {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+#message {
+  grid-area: message;
+  text-align: center;
+  font-size: 3em;
+  font-family: "Knewave", serif;
+  text-transform: uppercase;
+}
+
+#history,
+li {
+  font-family: "Titan One", serif;
+  letter-spacing: 2px;
+  margin: 5px 0; /* Réduit l’espacement vertical */
+  font-size: 0.9em; /* Réduit légèrement la taille de la police */
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#history {
+  grid-area: history;
+  max-height: 150px; /* Fixe une hauteur maximale */
+  overflow-y: auto; /* Ajoute une barre de défilement si le contenu dépasse */
+  padding: 5px;
+  border: 1px solid #ddd; /* Optionnel : pour délimiter visuellement */
+  border-radius: 5px;
+  background-color: #fff; /* Pour que l’historique soit bien visible */
+}
+
+#user-input {
+  grid-area: input;
+  width: 100%;
+  height: 2em;
+  max-width: 200px; /* Limite la taille de l’input */
+  outline: none;
+  border: none;
+  -webkit-appearance: none;
+  border-radius: 16px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+#check-button {
+  grid-area: check;
+  justify-self: center; /* Aligne le bouton à droite */
+  font-size: var(--button-game-size);
+  font-family: "Bangers", serif;
+  letter-spacing: 3px;
+  padding: 0.15em 0.6em;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 3px 6px;
+  scale: 1;
+  transition: scale 100ms ease-in-out;
+  transition: background-color 100ms ease-in;
+  cursor: pointer;
+}
+
+#replay-button {
+  grid-area: replay;
+  justify-self: start; /* Aligne le bouton à gauche */
+  font-size: var(--button-game-size);
+  font-family: "Bangers", serif;
+  letter-spacing: 3px;
+  padding: 0.2em 0.8em;
+  border-radius: 5px;
+  border: none;
+  background: none;
+  color: #fff;
+  scale: 1;
+  transition: scale 100ms ease-in-out;
+  cursor: pointer;
+}
+
+.input-feedback {
+  background-color: #d1f7c4; /* Vert clair */
+  transition: background-color 0.3s ease;
+}
+
+#check-button,
+#replay-button {
+  justify-self: center;
+}
+
+#check-button:focus,
+#check-button:hover {
+  background-color: #333;
+  color: #fff;
+  box-shadow: 1px 3px 6px #333;
+}
+
+#replay-button:focus,
+#replay-button:hover {
+  border: 1px solid #fff;
+}
+
+#check-button:focus,
+#check-button:hover,
+#replay-button:focus,
+#replay-button:hover {
+  scale: 1.1;
+}
+
+.wrapper-jeu {
+  display: grid;
+  grid-template-rows: 100px minmax(150px, auto) auto;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas:
+    "message message message"
+    "history input ."
+    ". check replay";
+  justify-items: center;
+  align-items: center;
+  gap: 30px;
+  max-width: 600px; /* Ajuste selon ta maquette */
+  margin: auto;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 600px) {
+  .wrapper-jeu {
+    grid-template-areas:
+      "message"
+      "input"
+      "check"
+      "replay";
+    grid-template-columns: 1fr;
+    gap: 20px; /* Espacement réduit pour mobile */
+    transition: all 0.3s ease-in-out;
+  }
+}
